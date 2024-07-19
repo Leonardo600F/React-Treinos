@@ -124,3 +124,5 @@ git pull origin exemplo/exemplo
 //Fork --> É uma cópia do projeto em nosso repositório remoto.
 
 //Git Ignore --> Indica quais arquivos e diretórios devem ser ignorados pelo Git, ou seja, ignorados pelo versionamento. Um exemplo é o node_modules, pois todas as dependencies já estão mapeadas no package.json.
+
+//Quando formos baixar algum projeto do GitHub, precisaremos digitar no terminal: npm install ou npm i. Pois estaremos instalando todas as dependencias listas no nosso .gitgnore.
