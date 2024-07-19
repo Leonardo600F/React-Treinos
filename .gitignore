@@ -1,0 +1,126 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+//Repositórios --> Significa um lugar ao qual se armazena algo. Usaremos repositórios para salvar e arquivar o nosso código.
+
+//Repositório Local --> Vai armazenar nosso código localmente, ou seja, na nossa máquina.
+
+//Repositório Remoto --> Vai armazenar nosso código em outro local na internet, fazendo com que outras pessoas tenham acesso ao nosso código, se for nossa vontade.
+
+//Versionamento --> É o gerenciamento de um determinado código em diferentes versões. No nosso caso o versionamento é a maneira como vamos dividir nosso código em diferentes versões de desenvolvimento. Isso faz com que nosso código fique mais organizado e...
+//dividido, fazendo com que outros programadores trabalhem no mesmo código de maneira mais produtiva e eficaz.
+
+//Git --> É um Sistema de Controle de Versões. Possuem a capacidade de registrar qualquer alteração em um código, armazenando as informações e permitindo que caso seja necessário um programador possa voltar a uma versão anterior do código.
+
+//O Git é responsável por criar um repositório local na nossa máquina, armazenando os códigos na nossa máquina. E também vai ser responsável por subir o código para um repositório remoto.
+
+//GitHub --> O GitHub é o repositório remoto, é pra ele que vamos subir o código do repositório local, para que outros programadores tenham acesso a este código. Vai funcionar como um local de compartilhamento.
+
+//Branch --> Um branch é uma ramificação do meu código, temos uma instância do nosso código principal que é chamada de branch master ou main, que seria nossa branch principal e todo trabalho feito a partir dela. Quando iniciamos um repositório local essa branch é
+//criada automaticamente, e a partir de agora todo trabalho que vai ser feito deve ser criada uma branch diferente à partir da branch master.
+
+//Merge --> O Merge vai servir para unir o código de duas branchs.
+
+//Depois de instalarmos o git, iremos ver se ele realmente está instalado abrindo o PowerShell e digitando: git -v.
+
+//Iremos usar agora o terminal do Git Bash, para selecionarmos é só clicarmos na seta no canto inferior direito.
+
+//Comando Git:
+
+//git init --> Cria um novo repositório do Git, sendo este repositório local.
+
+//git add --> Adiciona as alterações à área de staging, que é um rascunho usado antes de adicionar as alterações ao repositório local.
+
+//git commit --> Adiciona as alterações que estão em stagin ao repositório local.
+
+//git remote and origin --> Adiciona uma origin; um caminho para um repositório remoto.
+
+//git push --> Podemos subir o código que está no repositório local para o repositório remoto que criamos com o remote add origin.
+
+//git pull --> Podemos puxar o código que está em repositório remoto para nosso repositório local.
+
+//Quando criarmos o nosso repositório local veremos que tem o (master) após o nome. O master é a branch que estamos situados, e é criada por padrão. O VSCode entende que tudo criamos antes são as nossas alterações iniciais.
+
+//Na terceira aba iremos ver todas as modificações presentes na nossa aplicação, e como elas eram no começo e como estão agora.
+
+//No terceiro ícone é onde estará todas as alterações feitas no código, esta área é como se fosse um rascunho.
+
+//Com o git add podemos adicionar um arquivo em específico na área de staging. Porém o comum é adicionarmos todos os que tiveram uma alteração para a área de staging.
+
+//Para adicionar todos os arquivos basta usar: git add .
+
+//Antes de usarmos o git commit, precisamos configurar nossa conta na nossa IDE com os seguintes códigos:
+git config --global  user.email "LeonardoMarinZem2002@gmail.com"
+git config --global  user.name "Leonardo Marin Zem"
+
+//O git commit iremos fazer um pouco diferente: git commit -m "first commit". Iremos fazer isso para adicionar uma mensagem junto. Como é o nosso primeiro commit utilizaremos um "first commit", que é um padrão do mercado para o primeiro commit.
+//Porém, digitaremos nas aspas para qual função foi aquele commit. Se for de login, seria mais ou menos assim: git commit -m "Este foi um commit de login".
+
+//Podemos perceber que no terceiro ícone da nossa IDE ficou vazio.
+
+//Criaremos nosso repositório no GitHub na aba de perfil. Lá terá um "new" que servirá para criarmos um novo repositório. Criando o repositório agora vamos linkar o nosso repositório local com o remoto.
+
+//Na finalização do processo, o GitHub vai nos dar um link para usarmos com o git remote add origin:
+//git remote add origin https://github.com/Leonardo600F/Javascript-Treinos.git
+
+//Agora com o git remote add origin é a parte ao qual vamos conversar com nosso repositório remoto, que é o GitHub.
+
+//Criamos o caminho para o nosso código, porém ainda não o enviamos para o GitHub. Usaremos o git push:
+//git push origin master --> Subirá todo nosso código.
+
+//O git pull fará o inverso do git push; jogará o código do nosso repositório remoto para o local. Ele vai servir para uma pessoa puxar o código para a máquina dela.
+
+COMANDOS SECUNDÁRIOS:
+//git branch --> Lista todas as branchs.
+
+//git checkout --> Serve para trocar de uma branch para outra. Serve secundariamente para criar uma branch.
+
+//git clone --> É um comando para baixar o código-fonte existente de um repositório remoto. Basicamente, faz uma cópia idêntica da versão mais recente de um projeto em um repositório e salva em seu computador.
+
+//git merge --> Serve para unir os códigos de duas branchs.
+
+//git log --> Explora o histórico de um repositório.
+
+Criando uma branch com o checkout:
+//git checkout -b feature/info-screen --> O -b é o que criará a branch, já a feature é um modo de escrever para identificar uma funcionalidade. O / serve para escrever o nome da branch. Após a branch ser criada, será trocada da master para a nova.
+
+//Agora teremos 2 branchs dentro do GitHub, uma a master e a outra a feature/info-screen.
+
+//Detalhe que se escrevermos a metade de uma palavra e apertarmos o "Tab" a palavra se completará.
+
+//Para clonarmos um projeto, iremos no projeto desejado clicaremos no botão "<> Code", e copiaremos aquele link HTTPS.
+
+//Feito isso, abriremos o Powershell, iremos para a pasta desejada e digitaremos git clone projetocopiado.
+
+//Quando temos mais de duas branchs em um projeto que foi clonado, podemos utilizar o git pull para pegarmos essas branchs. Exemplo:
+git pull origin exemplo/exemplo
+
+//PR --> PR(Pull Request) funciona como uma solicitação de merge, você faz essa solicitação para "mergear" a sua branch, e o gestor ou desenvolvedor vai julgar se aquela solicitação deve ser aprovada. Sendo aprovada podemos "mergear" nossa branch em outra...
+//no repositório remoto.
+
+//CR --> CR(Code Review) é a revisão do código. Quando um PR é aberto é feito um Code Review naquele código para verificar se esse código está coerente para ser "mergeado".
+
+//Fork --> É uma cópia do projeto em nosso repositório remoto.
+
+//Git Ignore --> Indica quais arquivos e diretórios devem ser ignorados pelo Git, ou seja, ignorados pelo versionamento. Um exemplo é o node_modules, pois todas as dependencies já estão mapeadas no package.json.

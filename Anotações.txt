@@ -1,0 +1,394 @@
+//Aqui serão feitas minhas anotações sobre React. Irei estar documentando todas as informações que considero valiosas aqui neste bloco de notas, afim de reforçar meus estudos.
+
+//ATENTAÇÃO EU DO FUTURO: Caso esteja procurando a documentação de Git & GitHub, as mesmas estarão dentro do arquivo ".gitignore". 
+
+INSTALANDO O NODE.JS:
+
+// Link --> https://nodejs.org/pt
+
+//Para verificarmos a versão instalada utilizaremos o comando node -v.
+
+//Para atualizarmos o nosso Node.js utilizaremos o npm i -g npm@'Exemplo da versão que queremos';
+
+CONCEITOS:
+
+//React é um framework de SPA(Single Page Application): Um site/aplicação de uma única página.
+
+//Frameworks --> São ferramentas de trabalho, e são construídos a partir de uma linguagem de programação, no caso do React é o Javascript.
+
+//Webpack & Babel --> Site da documentação do Webpack: https://webpack.js.org/
+
+//O Webpack tem três funções:
+
+//Bundle: Agrupa o código da nossa aplicação;
+
+//Auxilia na separação do nosso código em diversos arquivos;
+
+//Vai trabalhar em conjunto com o NPM na importação e utilização dos nossos pacotes externos instalados, que estão presentes na pasta node_modules.
+
+//Não iremos mexer na configuração do Webpack, pois no create-react-app ele já vem configurado de maneira padrão.
+
+//Babel --> Site da documentação do Babel: https://babeljs.io/
+
+//Assim como o Webpack já vem com uma configuração por padrão, então não iremos mexer em suas funcionalidades.
+
+//O Babel tem duas funções:
+
+//Vai transformar o código Javascript novo em antigo. Isso acontece para termos mais disponibilidade em mais diversos browsers, pois existem alguns browsers que não dão suporte para código Javascript novo.
+
+//Vai transformar o nosso código JSX em funções React. Todo aquele código que se parece com HTML, são transformados em funções pelo Babel, para o entendimento da máquina ao código.
+
+
+//Node --> Permitirá que o Javascript seja rodado na nossa máquina. É como se ele extraísse a engine do navegador e instalasse na nossa máquina. Anteriormente rodavamos-o no navegador, pois por padrão só pode rodar em navegadores.
+
+//Engine --> Esta engine é responsável por entender e rodar o Javascript, ela está presente nos navegadores. No Chrome o nome desta engine é o V8, por exemplo.
+
+//NPM (Node Package Manager) --> Quando instalamos o Node, este pacote vem junto também. Os pacotes são códigos já escritos que vão entregar uma funcionalidade pronta pra também trabalharmos com algo pronto.
+//Portanto o Node Package Manager vai ser responsável por instalar, desinstalar, trabalhar e lidar com esses pacotes dentro do nosso projeto. Resumindo, ele é responsável por instalar e manipular pacotes externos na máquina.
+
+//NPX --> Este pacote já vem instalado na máquina, assim como o NPM. Ele serve para manipular pacotes externos, ou seja, permite-nos manipular pacotes que não estão instalados na nossa máquina. Um exemplo é create-react-app.
+
+//create-react-app -->  Esta linha de comando cria uma aplicação react. Após usar este comando, apenas precisamos dar um nome ao nosso projeto. Este pacote não estará instalado na nossa máquina, mas conseguiremos usá-lo pelo comando NPX.
+
+
+FUNÇÃO DE CADA PASTA NO REACT:
+
+//node_modules --> Estarão presentes aqui todos os pacotes externos da nossa aplicação, que são necessários para a execução do react. Nunca iremos mexer nesta pasta.
+
+//public --> Terá o "favicon.ico", que será aquele pequeno ícone que fica antes do nome da página. Logo após, temos o arquivo "index.html", ao qual será o nosso único arquivo HTML. Todo arquivo HTML construído no nosso react será colocado aqui neste arquivo.
+
+//src --> Há vários arquivos por padrão, mas o principal é o "index.js". Inclusive é aqui que escreveremos todo o nosso código. Vamos entender a importância deste arquivo:
+//Está criando uma constante chamada "root". Está chamando um método do React, que foi criado lá no pacote externo da node_modules, sendo importado de 'react-dom/client', que se encontado nesta mesma pasta. Ele criou uma root usando o método "createRoot". Após
+//isso pegou a div que está dentro do nosso "index.html"(<div> id="root"></div>), definindo-a como a "root"(raiz) do nosso projeto. Está sendo executado o método "render", que estará renderizando/escrevendo um código dentro da nossa "root". O código passado
+//Dentro do render é o código inicial do React. O "App" dentro do "React.StrictMode", está servindo para importar a função "App" dentro do "index.js", e este "index.js" está jogando todo este código para a nossa "root"(raiz), lá no "index.html".
+
+VISUALIZAÇÃO DO CÓDIGO:
+
+App.js:
+function App() {
+    return(
+        <div>Teste</div>
+    )
+}
+export default App;
+
+index.js:
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+//Por conta desta StrictMode nosso código localmente irá rodar duas vezes.
+
+index.html:
+<body>
+<div id="root></div>
+</body>
+
+//package-lock.json --> Vai relatar a versão de cada pacote instalado no nosso projeto.
+
+//package.json --> Tem diversas funcionalidades, mas as principais são também relatar os pacotes que temos instalados na nossa aplicação. É responsável também pelo armazenamento do react-scripts.
+
+//O que são os react-scripts --> Ele vem com alguns scripts por padrão, dentro do package.json. Aprenderemos os mais essencias. Exemplo:
+
+//start --> Vai server para rodar nossa aplicação em React;
+
+//build --> Vai servir para construir uma versão otimizada para subirmos a nossa aplicação em produção. Deixar um projeto em produção é deixar o projeto disponível para todo o público.
+
+//Como rodar os scripts --> Utilizaremos o comando npm, para rodar os scripts. Para rodarmos o comando "start" executaremos a seguinte linha: npm start. Caso quisermos executar um outro comando será usar a palavra run. Exemplo:
+
+//npm run build, npm run teste, npm run eject.
+
+//Para pararmos de rodar a nossa aplicação no VSCode, utilizaremos o comando: CTRL + C.
+
+//Hot reload --> Vai recarregar a página no mesmo momento que salvarmos uma mudança.
+
+//Nossa aplicação executada com npm star, vai ser rodada na porta 3000, mais conhecida como localhost.
+
+//O React é todo baseado em componentização, as funções que retornam o código JSX são componentes, por exemplo.
+
+//Para que serve o export default --> Utilizaremos o default para indicar que estamos exportando uma única função.
+
+
+//JSX --> O JSX é um código que simula HTML, porém ele é diferente do mesmo, pois nosso arquivo App.js, por exemplo, só aceitará códigos em Javascript. Ele é uma maneira de escrever funções react, já que o Babel o traduzirá para código Javascript.
+
+//O JSX sempre deve ser escrito dentro do return, que é tudo que a nossa aplicação mostrará em tela. Utilizamos o parenteses para indicar que todas as linhas de códigos serão retornadas dentro do return.
+
+//Funções react --> É um método que será importado diretamente da biblioteca React, que estamos utilizando para construir nossa aplicação.
+
+//JSX vs HTML --> Há 3 principais diferenças entre os dois:
+
+//A primeira diferença, sendo a mais importante de todas é o React Fragments: Só podemos passar um elemento dentro do return, sendo ele a div, como visto no arquivo App.js. Podemos criar uma div dentro da div principal(elemento), mas não podemos criar uma div
+//fora do elemento. O React fragment vai permitir que você passe mais de dois elementos. Exemplo:
+
+<>
+<div className="Teste">Teste</div className="Teste">
+</>
+
+//Estes <> </> são a representação da abertura e fechamento de um React Fragment. 
+
+//A segunda diferença é o Nome dos Atributos: Todos os atributos estarão em camel Case.
+
+//A terceira diferença é o className: Funciona da mesma maneira que o class do HTML. Ele só foi alterado, pois dentro do Javascript já temos a palavra reservada chamada "class", que serve para criar uma classe. O id aqui permanece a mesma coisa.
+
+
+//No JSX reside o maior poder do React: Mesclar código Javascript com HTML.
+
+//Para utilizarmos código Javascript abriremos uma div, e então usaremos chaves para chamar a nossa constante. Exemplo:
+
+const Lista = ['a', 'b'];
+return (
+  <div>{Lista}</div>
+)
+
+//Para melhor visualização do conteúdo, criei um arquivo à parte chamado exemploMaps.js.
+
+
+//O que é um componente --> É uma maneira de dividirmos nossa aplicação em pequenos pedaços, para melhor organização do código. Existem dois tipos de componente, sendo eles:
+
+//Componente funcional --> É um componente criado por uma função, como por exemplo a nossa function App.
+
+//Componente de Classe --> É uma maneira mais antiga de construir um componente, presente em códigos mais antigos. Consequentemente, não são mais utilizados hoje em dia.
+
+//Criaremos uma pasta dentro do "src" para guardamos ali todos os nossos componentes. Nesta pasta podemos tanto criar arquivos diretos, ou criar mais pasta para especificar algum componente.
+
+//É recomendável criarmos uma pasta para cada componente criado, pois não teremos só o arquivo js, como também teremos um arquivo css, por exemplo.
+
+//Em seguida, apagaremos todo o código escrito dentro do arquivo App.js, a fim de montarmos um novo projeto com exemplos.
+
+//Importando componentes --> Antes de começarmos a importação, temos que identificar se o componente que desejamos está sendo primeiramente exportado. A importação será feita usando de exemplo um componente funcional. Exemplo:
+
+function App() {
+  return (
+    <Button />
+  )
+}
+
+//Aqui estou fazendo a importação do componente Button, criado dentro do arquivo button.js. Note que ele se fecha ali mesmo.
+
+//Se percebermos estamos utilizando uma função como se fosse uma simples tag HTML, o responsável por deixa-lá tão simples é o Babel.
+
+//Dentro do App.js é aonde os nosso componentes serão exibidos. Portanto dentro do App.js terá uma função responsável por armazenar os containers.
+
+//Dentro do React os parâmetros são chamados de propriedades.
+
+//Para passarmos argumentos em React, os transformaremos em atributos. Exemplo:
+
+<Button name="Leonardo" />
+
+//Eventos --> É uma maneira de dispararmos uma certa funcionalidade. Iremos fazer isso por meio dos atributos do JSX. Há várias maneiras de fazermos isso:
+
+//onClick --> Irá disparar uma determinada ação quando clicarmos no elemento.
+
+//window.addEventListener --> É a maneira que vamos adicionar um evento ao Javascript.
+
+
+REACT HOOKS:
+
+//Estado e Reatividade --> Uma aplicação pode ter diversos estados controlando diversas coisas. Os Hooks vão facilitar a interação e manipulação para com estes estados. Sendo este o principal motivo para que o React seja utilizado no mercado de trabalho.
+
+//O Estado em poucas palavras vai gerenciar o que vai acontecer com nossa aplicação em certos momentos.
+
+//A Reatividade é como nossa aplicação vai se comportar com a mudança do estado.
+
+//Um exemplo simples do que foi dito: Quando nosso site estiver carregando, mostrará uma mensagem de carregamento, quando estiver completamente carregado, mostrará o site.
+
+//O React Hook vai recarregar os componentes e seus filhos quando algum valor for alterado.
+
+//O useState vai nos retornar um array de dois itens. O primeiro vai ser o valor atual. O segundo valor vai ser uma função, que vai servir especificamente para trocar o valor atual.
+
+//Para identificarmos um hook, é só vermos se tem a palavra "use".
+
+//Então o React vai entender que o componente que tem este hook e todos os seus filhos devem ser recarregados em tela.
+
+//Criação de um useState:
+const [exemplo, setExemplo] = useState(true);
+
+//Ciclo de vida de um componente --> Há 3 estados presentes de um componente:
+
+//1 --> Quando o componente é criado em tela.
+
+//2 --> Quando ele é atualizado em tela.
+
+//3 --> Quando ele é removido em tela.
+
+//UseEffect --> Vai nos auxiliar a lidar com esse ciclo de vida dos componentes. Ele será usado quando só quisermos que algum componente seja apenas utilizado em uma criação de tela, atualização de tela ou exclusão de tela, por exemplo.
+
+//No UseEffect teremos 2 parâmetros, sendo eles: Um arrow function e uma array de dependências. Exemplo:
+
+useEffect(() =>{}, []);
+
+//Para que serve o Array de dependências --> Se passarmos a const exemplo dentro deste array, toda vez que a const for atualizada, a função será executada. Porém podemos deixar o array vazio para o useEffect só executar na primeira renderização.
+
+//Para excluírmos um estado dentro do useEffect, criaremos um callback dentro das chaves.
+
+//useRef --> Vai servir para fazermos referência e ter acesso a um elemento criado em tela, ou seja, no nosso DOM, podendo utilizar seus métodos e propriedades. Ele nos ajuda a lidar com as referências dos elementos criados em tela.
+
+//O useRef vai ser criado como uma constante. Exemplo:
+const exemplo = useRef();
+
+//Utilizando o useRef:
+<exemploDiv ref={exemplo} />
+
+//Quando desenvolvemos o projeto do Batman, utilizei o getElementById para acessar os métodos e propriedades da div de video. O useRef vai nos ajudar com esses objetos criados em tela.
+
+//useMemo & useCallBack --> O useMemo vai ser um método que vai receber uma função que não vai ser recarregada com a atualização do componente, e seu valor de retorno vai ficar na variável que o criou. Iremos usar o useMemo quando temos algo muito grande que
+//não queremos que fique sendo atualizado toda vez que o componente é renderizado em tela. No useMemo também podemos ter um array de depêndencias, assim como no useEffect. E assim como no useEffect, quando o estado que estiver dentro do array for usado, a
+//ção com o valor armazenado é executada. Detalhe que a função dentro do useMemo sempre é carregada no primeiro carregamento da aplicação, depois só com o array de dependências.
+
+//Ele é pouco utilizado, pois a operação passada no useMemo tinha que ser extremamente lenta para valer a pena. Então, ele servirá apenas para ganho de performance em casos muito específicos.
+
+//useCallBack --> É parecido com o useMemo, a diferença é que no useMemo salvamos um valor, e aquele valor não vai ser atualizado, pois a função que o retorna não vai ser recarregada a menos que ela tenha uma depêndencia. No caso do useCallBack não iremos
+//armazenar o valor de retorno, mas sim a função inteira como se fosse um callback para ser executada à partir de um evento.
+
+//Para que usaremos o useCallBack--> No useMemo ele utilizava o valor que armazenamos na função, no caso do useCallBack ele vai armazenar a função em si. E quando a utilizarmos dentro do nosso button, por exemplo, vai executar a função que está salva na const.
+//E a função não será carregada na nossa função a menos que tenhamos dependências.
+
+//A diferença entre useMemo & useCallBack--> No useMemo retornamos um valor, e o valor que fica armazenado na constante. No useCallBack não precisamos retornar um valor, e é a função que vai ficar armazenada aqui no nosso valor de callback. A função não será
+//recarregada a menos que ela tenha uma depêndencia.
+
+//O que é um contexto/estado global --> Um Estado Global serve para centralizarmos valores e estados, e compartilhar valores e estados entre componentes que não interagem diretamente. Ou seja, um não é pai do outro e um não é filho do outro. Para compartilharmos
+//um estado ou valor entre componentes, sem a necessidade de passar por Props.
+
+//Um lembrete de CSS que pode ser útil para o futuro --> Para remover aqueles pontinhos de lista, utilizaremos o list-style: none, sempre no li.
+
+//Criaremos uma pasta chamada de stores, que é a nomenclatura para algo que está armazenando valores. É muito comum que esta pasta contenha todos os contextos que vão lidar com a nossa aplicação. Ou podemos criar uma pasta chamada contexts. Optaremos pela contexts.
+
+//Dentro desta pasta criaremos o arquivo de contextos globais do usuário, chamado de: userContext.js.
+
+CRIAÇÃO DO USE CONTEXT:
+
+//Faremos a importação do método primeiramente: 
+import {createContext} from "react";
+
+//Agora armazenaremos este método em uma constante:
+const UserContext = createContext(); --> Devemos executá-lo, pois o createContext é um método.
+
+//Criaremos uma const chamada de userStore, que terá um arrow funtion, e armazenará todos os nossos valores. A primeira coisa que criaremos nele é o nosso hook:
+const UserStore = () => {
+  const [login, setLogin] = useState(false);
+  return(
+
+  )
+}
+
+//Criaremos agora a "Store", que vai ser responsável por armazenar todos os valores do nosso contexto, que será um simples componente. Dentro da nossa Store, vamos retornar uma propriedade que vai estar dentro do nosso useContext em formato de componente:
+<UserContext.Provider></UserContext.Provider> --> O Provider é o que vai prover para toda a nossa aplicação os contextos.
+
+//O provider vai ter um atributo que se chama value, que passará os nossos valores em forma de objetos, e estes objetos serão nossos hooks. Criaremos nosso hooks antes do return acontecer, como de costume. Exemplo de utilização do value:
+<UserContext.Provider value={{login, setLogin}}></UserContext.Provider>
+
+//Para utilizarmos os nossos valores que estão passados no value, precisamos envolver a raíz da nossa aplicação com a nossa "Store" para a nossa aplicação ter acesso aos valores passados.
+
+//Como envolver a raíz --> Podemos passar uma propriedade para um componente, e recebe-lo lá dentro da execução da nossa função. Assim como se estivessemos criando uma função normalmente. Existe uma propriedade padrão do React chamada de "children".
+
+//children --> Children vai ser o que está dentro de todo o nosso componente: Tudo que estiver envolvido pela const UserStore. Então passaremos o children dentro do nosso UserContext.Provider, através de uma chave fazendo com que ele seja um objeto.
+
+//Agora daremos um export nas nossas duas constantes: A UserContext e UserStore, e logo após envolveremos o nosso componente App, com o UserStore.
+
+//Envolvendo o componente App --> No nosso index.js, veremos que nosso App está envolvido pelo StrictMode. Dentro deste StrictMode iremos importar o UserStore, e colocaremos o App dentro dele. Exemplo:
+<React.StrictMode>
+<UserStore>
+<App/>
+</UserStore>
+</React.StrictMode>
+
+//Explicação do que está acontecendo com o App --> Quando envolvermos algo com UserStore esse algo passará a ser o children da nossa aplicação. Agora App é o children do nosso componente, e uma vez que ele estiver dentro do UserProvider terá acesso aos valores
+//passados no value. Portanto, aquele children é como se fosse o próprio App.
+
+//Para usarmos o nosso useState dentro da nossa aplicação, precisaremos importá-los:
+const {login, setLogin} = useContext(UserContext); --> Este código será inserido no arquivo App.js.
+
+//Passaremos uma constante e logo depois utilizaremos chaves para colocar os valores que desejamos importar. Então utilizaremos a palavra reservada "useContext" e passaremos como parâmetro a const que armazena o nosso contexto, o UserContext.
+//Note que a const que cria um contexto global é o UserContext, não o UserStore. O UserStore apenas armazena os valores, o que de fato é o useContext é a primeira constante declarada.
+
+//Visualização do useContext usando um mapa mental --> Na tentativa de memorizar o conteúdo mais facilmente, criei este mapa que possuí 4 etapas:
+
+//Importação: import {createContext} from 'react';
+
+//Criação: Aqui é aonde vamos criar a estrutura que vai comportar os nossos dados.
+export const UserContext = createContext();
+export const UserStore = ({children}) => {}
+
+//Estado: Aqui é onde iremos passar os nossos hooks:
+const [exemplo, setExemplo] = useState({});
+
+//Provedor: Aqui é a parte mais importante, pois é aqui que estão os valores que estão sendo exportados:
+return(
+  <UserContext.Provider value={{exemplo, setExemplo}}>{children}</UserContext.Provider>
+)
+
+//Rotas --> Criaremos as rotas com uma biblioteca externa chamada react-router-dom. Instalação:
+npm i react-router-dom
+
+//Iremos importar 3 coisas desta biblioteca, sendo elas: BrowserRouter, Router e Route.
+
+//BrowserRouter --> Terá que envolver tudo da aplicação que terá utilização de rotas. Iremos usá-lo para envolver a raiz da nossa aplicação.
+
+//Routes --> Vai envolver todas as nossas rotas.
+
+//Route --> Vai criar a nossa rota. Dentro de um Route teremos um path, que indicará para qual página nos levará. Em seguida temos o element que indicará qual componente deve ser renderizado quando estivermos nesta rota.
+
+//Se deixar o path apenas com uma barra(path='/') indicará para a página principal.
+
+//Criando uma rota:
+return(
+  <BrowserRouter>
+  <Routes>
+  <Route path='/exemplo' element={<Exemplo/>}>
+  </Routes>
+  </Route>
+  </BrowserRouter>
+)
+
+//Link --> Vai ser da lib do react-router-dom, e servirá para navegar entre as páginas. É semelhante à âncora que usamos em HTML para navegar entre as páginas. Exemplo:
+<Link to='/exemplo>
+<li>Exemplo</li>
+</Link>
+
+//Temos um hook do próprio react-router-dom, que se chama useNavigate. O useNavigate é uma outra maneira de fazermos navegação em rotas:
+const navigate = useNavigate();
+<li onClick={()=> navigate('exemplo')}>Exemplo</li>
+
+//O useParams é um hook que permite vermos os parâmetros da nossa rota. Vamos usar de exemplo para seu uso uma loja online:
+
+//Como ele é um hook, criaremos uma const para passarmos seu valor:
+
+//const params = useParams();
+
+//Para visualizarmos todos os parâmetros da nossa rota, usaremos o seguinte comando:
+
+//console.log(params);
+
+//id --> É a nomenclatura usada para identificar um valor único, como um id de produto.
+
+//Quando clicarmos em um determinado produto, e o id será passado pela rota, abrirá uma nova página. Vamos utilizar a prática no arquivo dentro da pasta "home".
+
+//Quando clicarmos em um produto pediremos para a página a informação daquele produto, porém o Back End precisa saber qual produto queremos saber as informações. É justamente pelos parâmetros da rota e pelo o id.
+
+//useLocation --> O useLocation servirá para vermos todas as informações da nossa rota:
+
+//const location = useLocation();
+//console.log(location);
+
+//Ele nos retornará alguns detalhes, sendo os mais importantes o pathname e search:
+
+//pathname --> Vai nos mostrar qual pasta está sendo passada na rota.
+
+//search --> Serve para visualizar o que está sendo passada na nossa URL/Rota.
+
+//O useNavigate, useParams e o useLocation são hooks da lib 'react-router-dom'.
+
+//PropTypes --> Ajuda a lidar com as propriedades dos componentes. Ele nos ajudará na hora de atribuir um valor a uma determinada propriedade. Por exemplo, se estivermos esperando uma string e passarmos um number.
+
+//Lazy & Suspense --> Vão nos ajudar a carregar um novo código sob demanda. Quando tivermos um componente pesado, utilizaremos esta opção para quando quisermos que o mesmo seja carregado. Exemplo da situação:
+//Vamos imaginar que temos um componente de gráficos e de dados que são utilizados apenas em determinados momentos, então poderemos usar o Lazy e o Suspense para que a aplicação na fique carregando o componente sem necessidade.
+
+//Suspense --> O Suspense vai nos carregar um JSX enquanto o componente dentro do lazy não é carregado. O que passará este JSX será o método fallback que passaremos como um atributo dentro do nosso componente.
+
+//React Memo --> O React Memo de forma simples, memoriza um componente. Quando um estado é alterado em um componente, ele é recarregado com seus filhos. Se utilizarmos um Memo em um componente, apenas o pai dele será atualizado.
+
+//O Memo é usado em componentes pesados, mas que não dependem de nenhum valor de estado do seu pai.
